@@ -1,3 +1,26 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals"],
+  // Hay un error con la dependencia de babel
+  // Se sugiere un hack para resolver esto pero 
+  // desabilitaría las alertas de lint asi que mejor usé 
+  // estas rules de eslint
+  "rules": {
+    "no-undef": "error",
+    "no-unused-vars": "warn",
+    "no-unused-expressions": "warn",
+    "no-extra-semi": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["*.js", "*.mjs"],
+      "parser": "espree",
+      "parserOptions": {
+        "ecmaVersion": "latest"
+      }
+    }
+  ],
+  "env": {
+    "browser": true,
+    "es6": true
+  }
 }
