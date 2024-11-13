@@ -1,31 +1,16 @@
 {
   "env": {
-    "es6": true,
-    "node": true
-  },
-  "parserOptions": {
-    "ecmaVersion": 2018
+    "node": true,
+    "es2021": true
   },
   "extends": [
-    "eslint:recommended",
-    "google"
+    "eslint:recommended"
   ],
   "rules": {
-    "no-restricted-globals": ["error", "name", "length"],
-    "prefer-arrow-callback": "error",
-    "quotes": ["error", "double", { "allowTemplateLiterals": true }],
-    "linebreak-style": "off",
-    // "no-undef": "error" 
-
-  },
-  "overrides": [
-    {
-      "files": ["**/*.spec.*"],
-      "env": {
-        "mocha": true
-      },
-      "rules": {}
-    }
-  ],
-  "globals": {}
+    "semi": ["error", "always"],
+    "quotes": ["error", "double"],
+    "no-console": "warn",
+    "no-unused-vars": "warn",
+    "indent": ["error", 2]
+  }
 }
