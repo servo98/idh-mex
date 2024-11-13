@@ -5,20 +5,35 @@ mongoose.connection.on("open", () => {
 });
 
 mongoose.connection.on("disconnecting", () => {
-  console.error("Database disconnected 🔴");
+  console.error("Database disconnecting 🔴");
+});
+
+mongoose.connection.on("close", () => {
+  console.error("Database connection closed 🔴");
+});
+
+mongoose.connection.on("error", (error) => {
+  console.error("Database connection error 🔴");
+  console.error(error);
 });
 
 const connectToDB = async () => {
-  // Check if ther's already a connection
+  // Revisar si hay conexión activa antes de intentar conectar
   if (mongoose.connections[0].readyState) {
+    console.info("Already connected to the database.");
     return;
   }
 
   try {
-    await mongoose.connect(process.env.MONGO_URI);
+    console.info("Attempting to connect to the database...");
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
   } catch (error) {
-    console.error("Error in db connection 🔴");
+    console.error("Error in DB connection 🔴");
     console.error(error);
+    throw new Error("Failed to connect to the database");
   }
 };
 

@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, Schema, models } from "mongoose";
 import states from "@/data/states";
 
 const idhRecordSchema = new Schema({
@@ -17,4 +17,6 @@ const idhRecordSchema = new Schema({
   },
 });
 
-export default model("IDHRecord", idhRecordSchema);
+idhRecordSchema.index({ year: 1, idhIndex: 1, state: 1 }, { unique: true });
+
+export default models.IDHRecord || model("IDHRecord", idhRecordSchema);
