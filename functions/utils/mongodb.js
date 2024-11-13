@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
+// require("dotenv").config();
 
-const mongoURI = process.env.MONGO_URI;
+const functions = require("firebase-functions");
+
+const mongoURI = functions.config().mongo.uri;
 
 const connectToDB = async () => {
   if (mongoose.connections[0].readyState) {
