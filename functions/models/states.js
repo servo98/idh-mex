@@ -1,5 +1,3 @@
-// data/states.js
-
 const states = [
   "Aguascalientes",
   "Baja California",
@@ -35,4 +33,4 @@ const states = [
   "Zacatecas",
 ];
 
-export default states;
+module.exports = states;

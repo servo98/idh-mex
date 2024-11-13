@@ -1,6 +1,7 @@
 "use client";
 
 import Dropdowns from "./components/Dropdowns";
+import api from "./lib/axios";
 
 // import Test from "./components/Test";
 
@@ -12,8 +13,8 @@ export default function Home() {
 
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch("/api/idh");
-      const { states, idhRecords } = await response.json();
+      const { data } = await api.get("/getIDHRecords");
+      const { states, idhRecords } = data;
       setStates(states);
       setData(idhRecords);
     };

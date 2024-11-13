@@ -1,7 +1,6 @@
-import responseHelper from "@/app/utils/responseHelper";
-import connectToDB from "@/libs/mongodb";
-import IDHRecord from "@/models/IDHRecord";
-import states from "@/data/states";
+const IDHRecord = require("../models/IDHRecord");
+const connectToDB = require("../utils/mongodb");
+const states = require("../models/states");
 
 const generateRandomIDH = () => Math.random().toFixed(3);
 
@@ -33,13 +32,15 @@ const seedIDHRecords = async () => {
   }
 };
 
-const POST = async () => {
+const postSeedIDH = async (req, res) => {
+  // Usando `exports` para la función
   try {
     const result = await seedIDHRecords();
-    return responseHelper({ msg: result });
+    res.status(200).json({ msg: result });
   } catch (error) {
-    return responseHelper({ msg: error.message }, 500);
+    console.error("Error during seeding:", error);
+    res.status(500).json({ msg: error.message });
   }
 };
 
-export { POST };
+module.exports = postSeedIDH;

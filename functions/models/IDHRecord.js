@@ -1,5 +1,5 @@
-import { model, Schema, models } from "mongoose";
-import states from "@/data/states";
+const { Schema, model, models } = require("mongoose");
+const states = require("./states");
 
 const idhRecordSchema = new Schema({
   state: {
@@ -19,4 +19,5 @@ const idhRecordSchema = new Schema({
 
 idhRecordSchema.index({ year: 1, idhIndex: 1, state: 1 }, { unique: true });
 
-export default models.IDHRecord || model("IDHRecord", idhRecordSchema);
+// Exporta el modelo usando module.exports
+module.exports = models.IDHRecord || model("IDHRecord", idhRecordSchema);

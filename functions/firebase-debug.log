@@ -1,0 +1,205 @@
+[debug] [2024-11-13T04:23:31.274Z] ----------------------------------------------------------------------
+[debug] [2024-11-13T04:23:31.276Z] Command:       C:\program files\nodejs\node.exe C:\program files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2024-11-13T04:23:31.276Z] CLI Version:   13.25.0
+[debug] [2024-11-13T04:23:31.277Z] Platform:      win32
+[debug] [2024-11-13T04:23:31.277Z] Node Version:  v18.20.5
+[debug] [2024-11-13T04:23:31.277Z] Time:          Tue Nov 12 2024 22:23:31 GMT-0600 (hora estándar central)
+[debug] [2024-11-13T04:23:31.278Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-11-13T04:23:31.372Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-13T04:23:31.372Z] > authorizing via signed-in user (fernandonando89tttt@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting, extensions"}}
+[debug] [2024-11-13T04:23:31.376Z] Checked if tokens are valid: true, expires at: 1731475385347
+[debug] [2024-11-13T04:23:31.376Z] Checked if tokens are valid: true, expires at: 1731475385347
+[debug] [2024-11-13T04:23:31.377Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/idh-mex [none]
+[debug] [2024-11-13T04:23:31.506Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/idh-mex 200
+[debug] [2024-11-13T04:23:31.506Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/idh-mex {"projectId":"idh-mex","projectNumber":"1015731363885","displayName":"idh-mex","name":"projects/idh-mex","resources":{"hostingSite":"idh-mex"},"state":"ACTIVE","etag":"1_989d58b9-6fa7-4198-9859-2f8c4d7cb87f"}
+[debug] [2024-11-13T04:23:31.515Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-13T04:23:31.515Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-13T04:23:31.516Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-11-13T04:23:31.520Z] [hub] writing locator at C:\Users\ferna\AppData\Local\Temp\hub-idh-mex.json
+[debug] [2024-11-13T04:23:31.527Z] [Extensions] Started Extensions emulator, this is a noop.
+[debug] [2024-11-13T04:23:31.531Z] [functions] Functions Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-13T04:23:31.531Z] [eventarc] Eventarc Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-13T04:23:31.531Z] [tasks] Cloud Tasks Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-11-13T04:23:31.532Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000},{"address":"::1","family":"IPv6","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}],"tasks":[{"address":"127.0.0.1","family":"IPv4","port":9499}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, pubsub, storage, dataconnect {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, pubsub, storage, dataconnect\u001b[22m"}}
+[debug] [2024-11-13T04:23:31.535Z] defaultcredentials: writing to file C:\Users\ferna\AppData\Roaming\firebase\fernandonando89tttt_gmail_com_application_default_credentials.json
+[debug] [2024-11-13T04:23:31.538Z] Setting GAC to C:\Users\ferna\AppData\Roaming\firebase\fernandonando89tttt_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\ferna\\AppData\\Roaming\\firebase\\fernandonando89tttt_gmail_com_application_default_credentials.json"}}
+[debug] [2024-11-13T04:23:31.538Z] Checked if tokens are valid: true, expires at: 1731475385347
+[debug] [2024-11-13T04:23:31.538Z] Checked if tokens are valid: true, expires at: 1731475385347
+[debug] [2024-11-13T04:23:31.538Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/idh-mex/adminSdkConfig [none]
+[debug] [2024-11-13T04:23:31.703Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/idh-mex/adminSdkConfig 200
+[debug] [2024-11-13T04:23:31.703Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/idh-mex/adminSdkConfig {"projectId":"idh-mex","storageBucket":"idh-mex.firebasestorage.app"}
+[debug] [2024-11-13T04:23:31.718Z] Checked if tokens are valid: true, expires at: 1731475385347
+[debug] [2024-11-13T04:23:31.718Z] Checked if tokens are valid: true, expires at: 1731475385347
+[debug] [2024-11-13T04:23:31.719Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/idh-mex/sites 
+[debug] [2024-11-13T04:23:32.097Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/idh-mex/sites 200
+[debug] [2024-11-13T04:23:32.097Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/idh-mex/sites {"sites":[{"name":"projects/idh-mex/sites/idh-mex","defaultUrl":"https://idh-mex.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2024-11-13T04:23:32.098Z] Checked if tokens are valid: true, expires at: 1731475385347
+[debug] [2024-11-13T04:23:32.098Z] Checked if tokens are valid: true, expires at: 1731475385347
+[debug] [2024-11-13T04:23:32.098Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/idh-mex/webApps/-/config [none]
+[debug] [2024-11-13T04:23:32.381Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/idh-mex/webApps/-/config 200
+[debug] [2024-11-13T04:23:32.381Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/idh-mex/webApps/-/config {"projectId":"idh-mex","storageBucket":"idh-mex.firebasestorage.app","apiKey":"AIzaSyBXK1aZcezrVc3x7dSFYKk-nwOVcb_i554","authDomain":"idh-mex.firebaseapp.com","messagingSenderId":"1015731363885"}
+[debug] [2024-11-13T04:23:32.384Z] Checked if tokens are valid: true, expires at: 1731475385347
+[debug] [2024-11-13T04:23:32.384Z] Checked if tokens are valid: true, expires at: 1731475385347
+[debug] [2024-11-13T04:23:32.384Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/idh-mex [none]
+[debug] [2024-11-13T04:23:32.516Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/idh-mex 200
+[debug] [2024-11-13T04:23:32.516Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/idh-mex {"projectId":"idh-mex","projectNumber":"1015731363885","displayName":"idh-mex","name":"projects/idh-mex","resources":{"hostingSite":"idh-mex"},"state":"ACTIVE","etag":"1_989d58b9-6fa7-4198-9859-2f8c4d7cb87f"}
+[info] i  hosting[idh-mex]: Serving hosting files from: out {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mout\u001b[22m"}}
+[info] +  hosting[idh-mex]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[debug] [2024-11-13T04:23:32.533Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-11-13T04:23:32.533Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-11-13T04:23:32.533Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\ferna\\.cache\\firebase\\emulators\\ui-v1.14.0\\server\\server.mjs"],"optionalArgs":[],"joinArgs":false,"shell":false,"port":4000} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\ferna\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.14.0\\\\server\\\\server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false,\"shell\":false,\"port\":4000}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-11-13T04:23:32.704Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[debug] [2024-11-13T04:23:32.705Z] Web / API server started at ::1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:4000\n"}}
+[debug] [2024-11-13T04:23:32.797Z] [Extensions] Connecting Extensions emulator, this is a noop.
+[info] i  functions: Watching "C:\Users\ferna\Documents\code\idh-mex\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\ferna\\Documents\\code\\idh-mex\\functions\" for Cloud Functions..."}}
+[debug] [2024-11-13T04:23:32.806Z] Validating nodejs source
+[debug] [2024-11-13T04:23:34.042Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "mongoose": "^8.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-11-13T04:23:34.043Z] Building nodejs source
+[debug] [2024-11-13T04:23:34.043Z] Failed to find version of module node: reached end of search path C:\Users\ferna\Documents\code\idh-mex\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2024-11-13T04:23:34.046Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-11-13T04:23:34.054Z] Found firebase-functions binary at 'C:\Users\ferna\Documents\code\idh-mex\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8400
+
+[debug] [2024-11-13T04:23:35.077Z] Got response from /__/functions.yaml {"endpoints":{"postSeedIDH":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"postSeedIDH"},"getIDHRecords":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"getIDHRecords"}},"specVersion":"v1alpha1","requiredAPIs":[],"extensions":{}}
+[debug] [2024-11-13T04:23:35.101Z] defaultcredentials: writing to file C:\Users\ferna\AppData\Roaming\firebase\fernandonando89tttt_gmail_com_application_default_credentials.json
+[debug] [2024-11-13T04:23:35.102Z] Setting GAC to C:\Users\ferna\AppData\Roaming\firebase\fernandonando89tttt_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\ferna\\AppData\\Roaming\\firebase\\fernandonando89tttt_gmail_com_application_default_credentials.json"}}
+[info] +  functions: Loaded functions definitions from source: postSeedIDH, getIDHRecords. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: postSeedIDH, getIDHRecords."}}
+[info] +  functions[us-central1-postSeedIDH]: http function initialized (http://127.0.0.1:5001/idh-mex/us-central1/postSeedIDH). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/idh-mex/us-central1/postSeedIDH)."}}
+[info] +  functions[us-central1-getIDHRecords]: http function initialized (http://127.0.0.1:5001/idh-mex/us-central1/getIDHRecords). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/idh-mex/us-central1/getIDHRecords)."}}
+[debug] [2024-11-13T04:23:35.109Z] Could not find VSCode notification endpoint: FetchError: request to http://localhost:40001/vscode/notify failed, reason: connect ECONNREFUSED ::1:40001. If you are not running the Firebase Data Connect VSCode extension, this is expected and not an issue.
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────┬────────────────┬──────────────────────────────────┐
+│ Emulator   │ Host:Port      │ View in Emulator UI              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Functions  │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions  │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Hosting    │ 127.0.0.1:5000 │ n/a                              │
+├────────────┼────────────────┼──────────────────────────────────┤
+│ Extensions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/extensions │
+└────────────┴────────────────┴──────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+┌─────────────────────────┬───────────────┬─────────────────────┐
+│ Extension Instance Name │ Extension Ref │ View in Emulator UI │
+└─────────────────────────┴───────────────┴─────────────────────┘
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2024-11-13T04:23:36.929Z] [work-queue] {"queuedWork":["/idh-mex/us-central1/getIDHRecords-2024-11-13T04:23:36.928Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-13T04:23:36.929Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/idh-mex/us-central1/getIDHRecords-2024-11-13T04:23:36.928Z"],"workRunningCount":1}
+[debug] [2024-11-13T04:23:36.929Z] Accepted request GET /idh-mex/us-central1/getIDHRecords --> us-central1-getIDHRecords
+[debug] [2024-11-13T04:23:36.931Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-13T04:23:36.931Z] [functions] Got req.url=/idh-mex/us-central1/getIDHRecords, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/idh-mex/us-central1/getIDHRecords, mapping to path=/"}}
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2024-11-13T04:23:36.992Z] [worker-pool] addWorker(us-central1-getIDHRecords) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-getIDHRecords)"}}
+[debug] [2024-11-13T04:23:36.993Z] [worker-pool] Adding worker with key us-central1-getIDHRecords, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-getIDHRecords, total=1"}}
+[debug] [2024-11-13T04:23:38.644Z] [runtime-status] [209312] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\ferna\\Documents\\code\\idh-mex\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[runtime-status] [209312] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\ferna\\\\Documents\\\\code\\\\idh-mex\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-13T04:23:38.644Z] [runtime-status] [209312] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\ferna\\Documents\\code\\idh-mex\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[runtime-status] [209312] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\ferna\\\\Documents\\\\code\\\\idh-mex\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-13T04:23:38.645Z] [runtime-status] [209312] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[runtime-status] [209312] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-11-13T04:23:38.646Z] [runtime-status] [209312] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\ferna\\Documents\\code\\idh-mex\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[runtime-status] [209312] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\ferna\\\\Documents\\\\code\\\\idh-mex\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-13T04:23:38.895Z] [runtime-status] [209312] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[runtime-status] [209312] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-11-13T04:23:38.895Z] [runtime-status] [209312] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\ferna\\Documents\\code\\idh-mex\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[runtime-status] [209312] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\ferna\\\\Documents\\\\code\\\\idh-mex\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}}"}}
+[debug] [2024-11-13T04:23:38.895Z] [runtime-status] [209312] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\ferna\\Documents\\code\\idh-mex\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[runtime-status] [209312] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\ferna\\\\Documents\\\\code\\\\idh-mex\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-13T04:23:38.899Z] [runtime-status] [209312] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\ferna\\Documents\\code\\idh-mex\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[runtime-status] [209312] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\ferna\\\\Documents\\\\code\\\\idh-mex\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-11-13T04:23:38.901Z] [runtime-status] [209312] Resolved module firebase-functions {"declared":true,"installed":true,"version":"6.1.0","resolution":"C:\\Users\\ferna\\Documents\\code\\idh-mex\\functions\\node_modules\\firebase-functions\\lib\\v2\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[runtime-status] [209312] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"6.1.0\",\"resolution\":\"C:\\\\Users\\\\ferna\\\\Documents\\\\code\\\\idh-mex\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v2\\\\index.js\"}"}}
+[debug] [2024-11-13T04:23:38.901Z] [runtime-status] [209312] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.7.0","resolution":"C:\\Users\\ferna\\Documents\\code\\idh-mex\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[runtime-status] [209312] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"12.7.0\",\"resolution\":\"C:\\\\Users\\\\ferna\\\\Documents\\\\code\\\\idh-mex\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2024-11-13T04:23:39.262Z] [runtime-status] [209312] Functions runtime initialized. {"cwd":"C:\\Users\\ferna\\Documents\\code\\idh-mex\\functions","node_version":"18.20.5"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[runtime-status] [209312] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\ferna\\\\Documents\\\\code\\\\idh-mex\\\\functions\",\"node_version\":\"18.20.5\"}"}}
+[debug] [2024-11-13T04:23:39.263Z] [runtime-status] [209312] Listening to port: \\?\pipe\fire_emu_5e6cc9af959388f4 {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[runtime-status] [209312] Listening to port: \\\\?\\pipe\\fire_emu_5e6cc9af959388f4"}}
+[debug] [2024-11-13T04:23:39.327Z] [worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: IDLE"}}
+[debug] [2024-11-13T04:23:39.328Z] [worker-pool] submitRequest(triggerId=us-central1-getIDHRecords) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getIDHRecords)"}}
+[info] i  functions: Beginning execution of "us-central1-getIDHRecords" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Beginning execution of \"us-central1-getIDHRecords\""}}
+[debug] [2024-11-13T04:23:39.328Z] [worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: BUSY"}}
+[info] >  (node:209312) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version {"user":"(node:209312) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"\u001b[90m> \u001b[39m (node:209312) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version"}}
+[info] >  (Use `node --trace-warnings ...` to show where the warning was created) {"user":"(Use `node --trace-warnings ...` to show where the warning was created)","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"\u001b[90m> \u001b[39m (Use `node --trace-warnings ...` to show where the warning was created)"}}
+[info] >  (node:209312) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version {"user":"(node:209312) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"\u001b[90m> \u001b[39m (node:209312) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version"}}
+[info] >  Conexión exitosa a MongoDB {"user":"Conexión exitosa a MongoDB","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"\u001b[90m> \u001b[39m Conexión exitosa a MongoDB"}}
+[debug] [2024-11-13T04:23:39.382Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getIDHRecords" in 53.644ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finished \"us-central1-getIDHRecords\" in 53.644ms"}}
+[debug] [2024-11-13T04:23:39.382Z] [worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: IDLE"}}
+[debug] [2024-11-13T04:23:39.382Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-13T04:23:39.383Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-13T04:23:39.383Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-13T04:34:16.761Z] [work-queue] {"queuedWork":["/idh-mex/us-central1/getIDHRecords-2024-11-13T04:34:16.761Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-13T04:34:16.761Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/idh-mex/us-central1/getIDHRecords-2024-11-13T04:34:16.761Z"],"workRunningCount":1}
+[debug] [2024-11-13T04:34:16.761Z] Accepted request GET /idh-mex/us-central1/getIDHRecords --> us-central1-getIDHRecords
+[debug] [2024-11-13T04:34:16.763Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-13T04:34:16.764Z] [functions] Got req.url=/idh-mex/us-central1/getIDHRecords, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/idh-mex/us-central1/getIDHRecords, mapping to path=/"}}
+[debug] [2024-11-13T04:34:16.764Z] [worker-pool] submitRequest(triggerId=us-central1-getIDHRecords) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getIDHRecords)"}}
+[info] i  functions: Beginning execution of "us-central1-getIDHRecords" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Beginning execution of \"us-central1-getIDHRecords\""}}
+[debug] [2024-11-13T04:34:16.765Z] [worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: BUSY"}}
+[info] >  Ya estamos conectados a MongoDB {"user":"Ya estamos conectados a MongoDB","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"\u001b[90m> \u001b[39m Ya estamos conectados a MongoDB"}}
+[debug] [2024-11-13T04:34:16.777Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getIDHRecords" in 12.242ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finished \"us-central1-getIDHRecords\" in 12.242ms"}}
+[debug] [2024-11-13T04:34:16.777Z] [worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: IDLE"}}
+[debug] [2024-11-13T04:34:16.777Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-13T04:34:16.778Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-13T04:34:16.778Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-13T04:34:42.090Z] [work-queue] {"queuedWork":["/idh-mex/us-central1/getIDHRecords-2024-11-13T04:34:42.090Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-13T04:34:42.090Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/idh-mex/us-central1/getIDHRecords-2024-11-13T04:34:42.090Z"],"workRunningCount":1}
+[debug] [2024-11-13T04:34:42.090Z] Accepted request GET /idh-mex/us-central1/getIDHRecords --> us-central1-getIDHRecords
+[debug] [2024-11-13T04:34:42.092Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-13T04:34:42.092Z] [functions] Got req.url=/idh-mex/us-central1/getIDHRecords, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/idh-mex/us-central1/getIDHRecords, mapping to path=/"}}
+[debug] [2024-11-13T04:34:42.092Z] [worker-pool] submitRequest(triggerId=us-central1-getIDHRecords) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getIDHRecords)"}}
+[info] i  functions: Beginning execution of "us-central1-getIDHRecords" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Beginning execution of \"us-central1-getIDHRecords\""}}
+[debug] [2024-11-13T04:34:42.093Z] [worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: BUSY"}}
+[info] >  Ya estamos conectados a MongoDB {"user":"Ya estamos conectados a MongoDB","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"\u001b[90m> \u001b[39m Ya estamos conectados a MongoDB"}}
+[debug] [2024-11-13T04:34:42.107Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getIDHRecords" in 14.2049ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finished \"us-central1-getIDHRecords\" in 14.2049ms"}}
+[debug] [2024-11-13T04:34:42.108Z] [worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: IDLE"}}
+[debug] [2024-11-13T04:34:42.108Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-13T04:34:42.108Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-13T04:34:42.108Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-13T04:35:11.259Z] [work-queue] {"queuedWork":["/idh-mex/us-central1/getIDHRecords-2024-11-13T04:35:11.259Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-11-13T04:35:11.260Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/idh-mex/us-central1/getIDHRecords-2024-11-13T04:35:11.259Z"],"workRunningCount":1}
+[debug] [2024-11-13T04:35:11.260Z] Accepted request GET /idh-mex/us-central1/getIDHRecords --> us-central1-getIDHRecords
+[debug] [2024-11-13T04:35:11.261Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-11-13T04:35:11.261Z] [functions] Got req.url=/idh-mex/us-central1/getIDHRecords, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/idh-mex/us-central1/getIDHRecords, mapping to path=/"}}
+[debug] [2024-11-13T04:35:11.261Z] [worker-pool] submitRequest(triggerId=us-central1-getIDHRecords) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-getIDHRecords)"}}
+[info] i  functions: Beginning execution of "us-central1-getIDHRecords" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Beginning execution of \"us-central1-getIDHRecords\""}}
+[debug] [2024-11-13T04:35:11.262Z] [worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: BUSY"}}
+[info] >  Ya estamos conectados a MongoDB {"user":"Ya estamos conectados a MongoDB","metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"\u001b[90m> \u001b[39m Ya estamos conectados a MongoDB"}}
+[debug] [2024-11-13T04:35:11.271Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-getIDHRecords" in 9.18ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finished \"us-central1-getIDHRecords\" in 9.18ms"}}
+[debug] [2024-11-13T04:35:11.271Z] [worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"[worker-us-central1-getIDHRecords-4587d505-190c-44a1-be8f-adf94485aed4]: IDLE"}}
+[debug] [2024-11-13T04:35:11.271Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-11-13T04:35:11.272Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-getIDHRecords"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-11-13T04:35:11.272Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
