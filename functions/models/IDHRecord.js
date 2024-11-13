@@ -19,5 +19,4 @@ const idhRecordSchema = new Schema({
 
 idhRecordSchema.index({ year: 1, idhIndex: 1, state: 1 }, { unique: true });
 
-// Exporta el modelo usando module.exports
 module.exports = models.IDHRecord || model("IDHRecord", idhRecordSchema);
