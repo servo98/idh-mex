@@ -33,7 +33,6 @@ const seedIDHRecords = async () => {
 };
 
 const postSeedIDH = async (req, res) => {
-  // Usando `exports` para la función
   try {
     const result = await seedIDHRecords();
     res.status(200).json({ msg: result });
