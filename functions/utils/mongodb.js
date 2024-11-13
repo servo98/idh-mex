@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
-// require("dotenv").config();
-
-const functions = require("firebase-functions");
-
-const mongoURI = functions.config().mongo.uri;
 
 const connectToDB = async () => {
+  const mongoURI = process.env.MONGO_URI;
   if (mongoose.connections[0].readyState) {
     // console.log("Ya estamos conectados a MongoDB");
     return;
