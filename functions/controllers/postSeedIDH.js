@@ -27,7 +27,7 @@ const seedIDHRecords = async () => {
     await IDHRecord.insertMany(records);
     return "Seeding completed";
   } catch (error) {
-    console.error("Error with seeder", error);
+    // console.error("Error with seeder", error);
     throw new Error("Error during seeding");
   }
 };
@@ -38,7 +38,7 @@ const postSeedIDH = async (req, res) => {
     const result = await seedIDHRecords();
     res.status(200).json({ msg: result });
   } catch (error) {
-    console.error("Error during seeding:", error);
+    // console.error("Error during seeding:", error);
     res.status(500).json({ msg: error.message });
   }
 };

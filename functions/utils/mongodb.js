@@ -5,7 +5,7 @@ const mongoURI = process.env.MONGO_URI;
 
 const connectToDB = async () => {
   if (mongoose.connections[0].readyState) {
-    console.log("Ya estamos conectados a MongoDB");
+    // console.log("Ya estamos conectados a MongoDB");
     return;
   }
 
@@ -14,9 +14,9 @@ const connectToDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log("Conexión exitosa a MongoDB");
+    // console.log("Conexión exitosa a MongoDB");
   } catch (error) {
-    console.error("Error de conexión a MongoDB", error);
+    // console.error("Error de conexión a MongoDB", error);
     throw new Error("Error de conexión a la base de datos");
   }
 };
