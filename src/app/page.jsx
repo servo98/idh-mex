@@ -9,14 +9,14 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [states, setStates] = useState([]);
-  const [data, setData] = useState(null);
+  const [idhRecords, setidhRecords] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
       const { data } = await api.get("/getIDHRecords");
-      const { states, idhRecords } = data;
+      const { states, idhRecords: records } = data;
       setStates(states);
-      setData(idhRecords);
+      setidhRecords(records);
     };
     getData();
   }, []);
@@ -24,7 +24,7 @@ export default function Home() {
     <div>
       <main>
         {/* <Test /> */}
-        <Dropdowns states={states} data={data} />
+        <Dropdowns states={states} idhRecords={idhRecords} />
       </main>
       {/* TODO: make footer */}
       {/* <footer>footer</footer> */}

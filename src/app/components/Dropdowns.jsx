@@ -1,5 +1,7 @@
 "use client";
+
 import { useState, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 
 import {
   Autocomplete,
@@ -13,13 +15,21 @@ import {
 } from "@mui/material";
 
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import SortByAlphaIcon from "@mui/icons-material/SortByAlpha";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 import DataTable from "./DataTable";
 import Pagination from "./Pagination";
 
-function Dropdowns({ states, data }) {
+/**
+ *
+ * @param {{states: String[], idhRecords: []}} param0
+ * @returns
+ */
+function Dropdowns({ states, idhRecords }) {
+  //TODO: move this
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
   const MenuProps = {
@@ -31,21 +41,60 @@ function Dropdowns({ states, data }) {
     },
   };
 
-  const availableSorts = ["ascending", "descending"];
-
-  const uniqueYears = useMemo(() => {
-    if (!data) return [];
-    const yearsSet = new Set(data.map((idhRecord) => idhRecord.year));
-    return [...yearsSet];
-  }, [data]);
   const [selectedYears, setSelectedYears] = useState([]);
   const [selectedState, setSelectedState] = useState("");
   const [selectedSort, setSelectedSort] = useState("");
+
+  //TODO: use query params
+  const searchParams = useSearchParams();
+  const search = searchParams.get("search");
+
+  const uniqueYears = useMemo(() => {
+    if (Array.isArray(idhRecords)) {
+      const yearsSet = new Set(idhRecords.map((idhRecord) => idhRecord.year));
+      return [...yearsSet];
+    }
+    return [];
+  }, [idhRecords]);
+
+  // alfa
+  // asc
+  // desc
+  const filteredData = useMemo(() => {
+    if (Array.isArray(idhRecords)) {
+      console.log("idhRecords NO vacio");
+
+      return idhRecords
+        .filter((record) => {
+          // Here I used morgan rules to simplify comparators and avoid returning hardcoded trues
+          const stateCondition =
+            !selectedState || record.state === selectedState;
+
+          const yearCondition =
+            !selectedYears.length || selectedYears.includes(record.year);
+
+          return stateCondition && yearCondition;
+        })
+        .sort((a, b) => {
+          // Here I tried to avoid switch case or multiple ifs
+          const sortFunctions = {
+            alfa: (a, b) => a.state.localeCompare(b.state),
+            asc: (a, b) => a.idhIndex - b.idhIndex,
+            desc: (a, b) => b.idhIndex - a.idhIndex,
+          };
+          return (sortFunctions[selectedSort] || (() => 0))(a, b);
+        });
+    }
+    console.log("idhRecords vacio");
+
+    return [];
+  }, [selectedSort, selectedState, selectedYears, idhRecords]);
 
   const handleSelectedStateChange = (_, newValue) => {
     setSelectedState(newValue);
   };
 
+  //TODO: make single handle change
   const handleSelectedYearsChange = (e) => {
     const { value } = e.target;
     setSelectedYears([...value]);
@@ -54,6 +103,10 @@ function Dropdowns({ states, data }) {
   const handleSelectedSortChange = (e) => {
     const { value } = e.target;
     setSelectedSort(value);
+  };
+
+  const handlePaginationChange = (data) => {
+    console.log(data);
   };
 
   /**
@@ -112,17 +165,35 @@ function Dropdowns({ states, data }) {
         label="Sort"
         onChange={handleSelectedSortChange}
       >
-        {availableSorts.map((sortType) => (
-          <MenuItem key={sortType} value={sortType}>
-            {sortType}
-            <ArrowDownwardIcon />
-          </MenuItem>
-        ))}
+        <MenuItem
+          value={"alfa"}
+          sx={{ display: "flex", justifyContent: "space-between" }}
+        >
+          Alfabéticamente
+          <SortByAlphaIcon />
+        </MenuItem>
+        <MenuItem
+          value={"asc"}
+          sx={{ display: "flex", justifyContent: "space-between" }}
+        >
+          IDH
+          <ArrowUpwardIcon />
+        </MenuItem>
+        <MenuItem
+          value={"desc"}
+          sx={{ display: "flex", justifyContent: "space-between" }}
+        >
+          IDH
+          <ArrowDownwardIcon />
+        </MenuItem>
       </Select>
 
-      <DataTable />
+      <DataTable idhRecords={filteredData} />
 
-      <Pagination />
+      <Pagination
+        numberItems={filteredData.length}
+        onchange={handlePaginationChange}
+      />
     </div>
   );
 }
