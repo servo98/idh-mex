@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import Dropdowns from "./components/Dropdowns";
 import api from "./lib/axios";
 
@@ -13,18 +14,26 @@ export default function Home() {
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await api.get("/getIDHRecords");
-      const { states, idhRecords: records } = data;
-      setStates(states);
-      setidhRecords(records);
+      try {
+        const { data } = await api.get("/getIDHRecords");
+        const { states, idhRecords: records } = data;
+        console.log("Fetched states:", states);
+        setStates(states);
+        setidhRecords(records);
+      } catch (error) {
+        console.error("un error", error);
+      }
     };
     getData();
   }, []);
+
   return (
     <div>
       <main>
         {/* <Test /> */}
-        <Dropdowns states={states} idhRecords={idhRecords} />
+        <Suspense>
+          <Dropdowns states={states} idhRecords={idhRecords} />
+        </Suspense>
       </main>
       {/* TODO: make footer */}
       {/* <footer>footer</footer> */}

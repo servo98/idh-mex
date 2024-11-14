@@ -46,8 +46,11 @@ function Dropdowns({ states, idhRecords }) {
   const [selectedSort, setSelectedSort] = useState("");
 
   //TODO: use query params
-  const searchParams = useSearchParams();
-  const search = searchParams.get("search");
+  const [searchParams, setSearchParams] = useState(null);
+
+  const params = useSearchParams();
+
+  console.log(params.values);
 
   const uniqueYears = useMemo(() => {
     if (Array.isArray(idhRecords)) {
