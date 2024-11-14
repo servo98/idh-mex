@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
-
 import {
   Autocomplete,
   TextField,
@@ -23,6 +21,8 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import DataTable from "./DataTable";
 import Pagination from "./Pagination";
 
+import useQueryParams from "../hooks/useQueryParams";
+
 /**
  *
  * @param {{states: String[], idhRecords: []}} param0
@@ -41,6 +41,9 @@ function Dropdowns({ states, idhRecords }) {
     },
   };
 
+  //Getting and validation of query params
+  const [queryParams, updateQueryParam] = useQueryParams();
+
   //Filter states
   const [selectedYears, setSelectedYears] = useState([]);
   const [selectedState, setSelectedState] = useState("");
@@ -51,11 +54,6 @@ function Dropdowns({ states, idhRecords }) {
     currentPage: 1,
     itemsPerPage: 10,
   });
-
-  //TODO: use query params
-  const [searchParams, setSearchParams] = useState(null);
-  const params = useSearchParams();
-  console.log(params.values);
 
   // Calculate unique years un records
   const uniqueYears = useMemo(() => {
@@ -137,7 +135,7 @@ function Dropdowns({ states, idhRecords }) {
         id="state-selected"
         disablePortal
         options={states}
-        value={selectedState}
+        value={selectedState || null}
         onChange={handleSelectedStateChange}
         sx={{ width: 300 }}
         popupIcon={<LocationOnIcon />}
@@ -155,9 +153,8 @@ function Dropdowns({ states, idhRecords }) {
         input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
         renderValue={(selected) => (
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-            {selected.map((value) => (
-              <Chip key={value} label={value} />
-            ))}
+            {Array.isArray(selected) &&
+              selected.map((value) => <Chip key={value} label={value} />)}
           </Box>
         )}
         sx={{ width: 300 }}
