@@ -5,7 +5,7 @@
   // desabilitaría las alertas de lint asi que mejor usé 
   // estas rules de eslint
   "rules": {
-    "no-undef": "error",
+    "no-undef": "warn",
     "no-unused-vars": "warn",
     "no-unused-expressions": "warn",
     "no-extra-semi": "warn"

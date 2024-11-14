@@ -33,7 +33,13 @@ const seedIDHRecords = async () => {
 };
 
 const postSeedIDH = async (req, res) => {
+  if (req.method !== "POST") {
+    return res
+      .status(405)
+      .json({ msg: "Method Not Allowed. Only POST requests are allowed." });
+  }
   try {
+    // TODO: validate body
     const result = await seedIDHRecords();
     res.status(200).json({ msg: result });
   } catch (error) {

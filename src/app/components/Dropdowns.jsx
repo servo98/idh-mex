@@ -86,6 +86,7 @@ function Dropdowns({ states, idhRecords }) {
             alfa: (a, b) => a.state.localeCompare(b.state),
             asc: (a, b) => a.idhIndex - b.idhIndex,
             desc: (a, b) => b.idhIndex - a.idhIndex,
+            //TODO: add year sort
           };
           return (sortFunctions[selectedSort] || (() => 0))(a, b);
         });
@@ -201,7 +202,7 @@ function Dropdowns({ states, idhRecords }) {
         </MenuItem>
       </Select>
 
-      <DataTable idhRecords={paginatedData} />
+      <DataTable idhRecords={paginatedData} states={states} />
       <Pagination
         numberItems={filteredData.length}
         currentPage={paginationData.currentPage}

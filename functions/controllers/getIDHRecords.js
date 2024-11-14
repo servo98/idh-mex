@@ -3,6 +3,12 @@ const connectToDB = require("../utils/mongodb");
 const IDHRecord = require("../models/IDHRecord");
 
 const getIDHRecords = async (req, res) => {
+  if (req.method !== "GET") {
+    return res
+      .status(405)
+      .json({ msg: "Method Not Allowed. Only GET requests are allowed." });
+  }
+
   try {
     await connectToDB();
     const idhs = await IDHRecord.find();
