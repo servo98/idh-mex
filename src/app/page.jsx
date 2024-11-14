@@ -17,7 +17,6 @@ export default function Home() {
       try {
         const { data } = await api.get("/getIDHRecords");
         const { states, idhRecords: records } = data;
-        console.log("Fetched states:", states);
         setStates(states);
         setidhRecords(records);
       } catch (error) {

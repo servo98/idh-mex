@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
 import {
@@ -41,17 +41,23 @@ function Dropdowns({ states, idhRecords }) {
     },
   };
 
+  //Filter states
   const [selectedYears, setSelectedYears] = useState([]);
   const [selectedState, setSelectedState] = useState("");
   const [selectedSort, setSelectedSort] = useState("");
 
+  //Pagination states
+  const [paginationData, setPaginationData] = useState({
+    currentPage: 1,
+    itemsPerPage: 10,
+  });
+
   //TODO: use query params
   const [searchParams, setSearchParams] = useState(null);
-
   const params = useSearchParams();
-
   console.log(params.values);
 
+  // Calculate unique years un records
   const uniqueYears = useMemo(() => {
     if (Array.isArray(idhRecords)) {
       const yearsSet = new Set(idhRecords.map((idhRecord) => idhRecord.year));
@@ -60,13 +66,9 @@ function Dropdowns({ states, idhRecords }) {
     return [];
   }, [idhRecords]);
 
-  // alfa
-  // asc
-  // desc
+  // Data filtered pre pagination no direct state neede, just dependencies to re calculate
   const filteredData = useMemo(() => {
     if (Array.isArray(idhRecords)) {
-      console.log("idhRecords NO vacio");
-
       return idhRecords
         .filter((record) => {
           // Here I used morgan rules to simplify comparators and avoid returning hardcoded trues
@@ -88,16 +90,31 @@ function Dropdowns({ states, idhRecords }) {
           return (sortFunctions[selectedSort] || (() => 0))(a, b);
         });
     }
-    console.log("idhRecords vacio");
 
     return [];
   }, [selectedSort, selectedState, selectedYears, idhRecords]);
+
+  // Data to be displayed in current re calculated only when pagination state change
+  const paginatedData = useMemo(() => {
+    const startIndex =
+      (paginationData.currentPage - 1) * paginationData.itemsPerPage;
+    const endIndex = paginationData.currentPage * paginationData.itemsPerPage;
+    return filteredData.slice(startIndex, endIndex);
+  }, [filteredData, paginationData]);
+
+  // change pagination data when new filter are aplied
+  useEffect(() => {
+    //Reset current page to 1 when data filtered change
+    setPaginationData((prevData) => ({
+      ...prevData,
+      currentPage: 1,
+    }));
+  }, [selectedState, selectedYears, selectedSort, idhRecords]);
 
   const handleSelectedStateChange = (_, newValue) => {
     setSelectedState(newValue);
   };
 
-  //TODO: make single handle change
   const handleSelectedYearsChange = (e) => {
     const { value } = e.target;
     setSelectedYears([...value]);
@@ -109,16 +126,9 @@ function Dropdowns({ states, idhRecords }) {
   };
 
   const handlePaginationChange = (data) => {
-    console.log(data);
+    setPaginationData(data);
   };
 
-  /**
-    data: un arreglo de objetos con los datos que se mostraran en la tabla.
-    selectedYear: el año que se desea visualizar.
-    selectedState: los estados seleccionados.
-    sort: la forma de ordenar los datos.
-    pagination: pagina los datos.
- */
   return (
     <div>
       <InputLabel id="state-selected">Select State</InputLabel>
@@ -191,10 +201,11 @@ function Dropdowns({ states, idhRecords }) {
         </MenuItem>
       </Select>
 
-      <DataTable idhRecords={filteredData} />
-
+      <DataTable idhRecords={paginatedData} />
       <Pagination
         numberItems={filteredData.length}
+        currentPage={paginationData.currentPage}
+        itemsPerPage={paginationData.itemsPerPage}
         onchange={handlePaginationChange}
       />
     </div>
