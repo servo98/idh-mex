@@ -1,10 +1,7 @@
 "use client";
 
-import { Suspense } from "react";
 import Main from "./components/Main";
 import api from "./lib/axios";
-
-// import Test from "./components/Test";
 
 import { useEffect, useState } from "react";
 
@@ -28,9 +25,7 @@ export default function Home() {
 
   return (
     <main>
-      <Suspense>
-        <Main states={states} idhRecords={idhRecords} />
-      </Suspense>
+      <Main states={states} idhRecords={idhRecords} />
     </main>
   );
 }
