@@ -29,6 +29,11 @@ jobs:
           yarn install --frozen-lockfile  # Instala dependencias utilizando el caché si está disponible
           yarn build  # Construye el proyecto
 
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: yarn start
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
