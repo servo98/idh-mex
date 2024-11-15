@@ -54,11 +54,19 @@ const DataTable = ({ idhRecords, states }) => {
 
   return (
     <>
-      <TableContainer component={Paper} sx={{ width: 700 }}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <TableContainer component={Paper} sx={{ width: "100%" }}>
+        <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Estado</TableCell>
+              <TableCell
+                sx={{
+                  // Ajusta el tamaño solo en pantallas pequeñas (xs)
+                  fontSize: { xs: "0.75rem", sm: "1rem" }, // Tamaño más pequeño en móviles
+                  padding: { xs: "6px 10px", sm: "16px 24px" }, // Reduce el padding en móvil
+                }}
+              >
+                Estado
+              </TableCell>
               <TableCell align="right">Año</TableCell>
               <TableCell align="right">IDH</TableCell>
               <TableCell align="right">Acción</TableCell>
@@ -69,9 +77,19 @@ const DataTable = ({ idhRecords, states }) => {
               idhRecords.map((row) => (
                 <TableRow
                   key={row._id}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  sx={{
+                    "&:last-child td, &:last-child th": { border: 0 },
+                  }}
                 >
-                  <TableCell component="th" scope="row">
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    sx={{
+                      // Ajustes en el tamaño solo para pantallas pequeñas
+                      fontSize: { xs: "0.75rem", sm: "1rem" },
+                      padding: { xs: "6px 10px", sm: "16px 24px" },
+                    }}
+                  >
                     {row.state}
                   </TableCell>
                   <TableCell align="right">{row.year}</TableCell>
@@ -79,7 +97,6 @@ const DataTable = ({ idhRecords, states }) => {
                     {(+row.idhIndex).toFixed(3)}
                   </TableCell>
                   <TableCell align="right">
-                    {" "}
                     <IconButton
                       color="primary"
                       onClick={() => openEdit(row)}
