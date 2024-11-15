@@ -1,4 +1,4 @@
-import { Modal, Box, TextField, Button, Typography } from "@mui/material";
+import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 
 const EditModal = ({
   open,
