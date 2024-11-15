@@ -100,7 +100,7 @@ const DataTable = ({ idhRecords, states, handleModifyRecords }) => {
           onClick={toggleTable}
           sx={{
             color: "primary.main",
-            backgroundColor: "background.paper",
+            // backgroundColor: "main",
             "&:hover": {
               backgroundColor: "action.hover",
             },

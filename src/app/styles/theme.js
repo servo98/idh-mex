@@ -1,4 +1,5 @@
 "use client";
+
 import { createTheme } from "@mui/material";
 import { Roboto } from "next/font/google";
 
@@ -8,17 +9,23 @@ const roboto = Roboto({
   preload: false,
 });
 
-//TODO: crear tema on MUI theme generator
+// Crear el tema MUI
 const theme = createTheme({
   palette: {
+    mode: "dark", // Asegurarse de usar 'mode' en lugar de 'type'
     primary: {
-      main: "#1976d2",
+      main: "#3f51b5",
     },
     secondary: {
-      main: "#dc004e",
+      main: "#f50057",
+    },
+    text: {
+      primary: "#ffffff",
     },
   },
-  typography: roboto.style.fontFamily,
+  typography: {
+    fontFamily: roboto.style.fontFamily,
+  },
 });
 
 export default theme;

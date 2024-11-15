@@ -35,7 +35,6 @@ const Graph = ({ idhRecords, availableYears = [] }) => {
     <Container
       sx={{
         padding: 2,
-        backgroundColor: "#f4f4f4",
         borderRadius: 2,
         boxShadow: 3,
         display: "flex",
