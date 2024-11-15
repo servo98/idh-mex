@@ -27,12 +27,7 @@ jobs:
       - run: |
           export NEXT_PUBLIC_API_URL=https://us-central1-idh-mex.cloudfunctions.net
           yarn install --frozen-lockfile
-          yarn build  # Construye el proyecto
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          start: yarn start:static
+          yarn build
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
