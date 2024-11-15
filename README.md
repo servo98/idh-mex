@@ -61,6 +61,9 @@ A few of the things you can do with this app:
 * Detects which part should deploy
 * Monorepo
 * Connects to MongoDB
+* Responsive design
+* Hide table to get direct to map
+* Calculate average of idh records per state
 
 ## Build Process
 
