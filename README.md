@@ -10,7 +10,7 @@
 
 - Cypress test
 
-- Responsive design
+- Responsive design ✅
 
 - Firebase functions serverless backend✅
 

@@ -1,6 +1,9 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
+
+import Link from "next/link";
+
 import {
   Autocomplete,
   TextField,
@@ -11,6 +14,7 @@ import {
   Chip,
   InputLabel,
   Fab,
+  Button,
 } from "@mui/material";
 
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
@@ -30,7 +34,7 @@ import Pagination from "./Pagination";
  * @param {{states: String[], idhRecords: []}} param0
  * @returns
  */
-function Dropdowns({ states, idhRecords }) {
+function Main({ states, idhRecords }) {
   //TODO: move this
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
@@ -103,8 +107,6 @@ function Dropdowns({ states, idhRecords }) {
     return filteredData.slice(startIndex, endIndex);
   }, [filteredData, paginationData]);
 
-  const isUpdatingRef = useRef(false);
-
   // change pagination data when new filter are aplied
   useEffect(() => {
     //Reset current page to 1 when data filtered change
@@ -141,6 +143,7 @@ function Dropdowns({ states, idhRecords }) {
         alignItems: "center",
       }}
     >
+      {/* Filters */}
       <Box
         sx={{
           display: "flex",
@@ -267,16 +270,37 @@ function Dropdowns({ states, idhRecords }) {
           onchange={handlePaginationChange}
         />
       </Box>
+
+      {/* Show graph button */}
+      <Box
+        sx={{
+          width: { xs: "100%", sm: "auto" },
+          margin: "auto",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Link href="/graph" passHref>
+          <Button
+            size="large"
+            variant="contained"
+            sx={{ width: { xs: "100%", sm: "auto" }, m: 4 }}
+          >
+            Ver gráfica
+          </Button>
+        </Link>
+      </Box>
+
+      {/* Add year button */}
       <Fab
         color="primary"
         aria-label="add"
         sx={{
-          position: "fixed", // Lo coloca en una posición fija en la pantalla
-          bottom: 16, // Lo posiciona a 16px del fondo
-          right: 16, // Lo posiciona a 16px de la derecha
-          zIndex: 1000, // Asegura que esté por encima de otros elementos
+          position: "fixed",
+          bottom: 16,
+          right: 16,
+          zIndex: 1000,
         }}
-        // Maneja la acción de clic (si tienes alguna acción)
       >
         <AddIcon />
       </Fab>
@@ -284,4 +308,4 @@ function Dropdowns({ states, idhRecords }) {
   );
 }
 
-export default Dropdowns;
+export default Main;

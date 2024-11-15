@@ -54,7 +54,7 @@ const DataTable = ({ idhRecords, states }) => {
 
   return (
     <>
-      <TableContainer component={Paper} sx={{ width: "100%" }}>
+      <TableContainer component={Paper} sx={{ width: "100%", px: 2 }}>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -110,6 +110,7 @@ const DataTable = ({ idhRecords, states }) => {
           </TableBody>
         </Table>
       </TableContainer>
+
       <EditModal
         states={states}
         open={open}
