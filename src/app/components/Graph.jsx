@@ -1,59 +1,117 @@
 "use client";
 
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
-
+import {
+  Box,
+  Typography,
+  Grid2 as Grid,
+  Divider,
+  Container,
+} from "@mui/material";
 import interpolateColor from "@/app/lib/interpolate";
 
-const geoUrl =
-  "https://raw.githubusercontent.com/strotgen/mexico-leaflet/refs/heads/master/states.geojson";
+const geoUrl = "/states.geojson";
 
-// Definir un objeto con los colores por estado
-const stateColors = {
-  Aguascalientes: "#FF0000", // Rojo
-  "Baja California": "#00FF00", // Verde
-  "Baja California Sur": "#0000FF", // Azul
-  // Agrega más estados y sus colores aquí...
-};
-
-const Graph = ({ idhRecord }) => {
+const Graph = ({ idhRecords, availableYears = [] }) => {
   const getIDHfromStateNumber = (stateNumber) => {
-    //TODO:  something wiht all data arond the years
-    const found = idhRecord.find((record) => {
-      return record.stateNumber == stateNumber;
-    });
-    return found ? found.idhIndex : 0;
+    // Get all records from that state
+    const stateRecords = idhRecords.filter(
+      (record) => record.stateNumber == stateNumber
+    );
+
+    // If no records return 0
+    if (stateRecords.length === 0) return 0;
+
+    // Calculate average
+    const totalIDH = stateRecords.reduce(
+      (sum, record) => sum + record.idhIndex,
+      0
+    );
+
+    return totalIDH / stateRecords.length;
   };
 
   return (
-    <ComposableMap
-      projection="geoMercator"
-      projectionConfig={{
-        scale: 1000,
-        center: [-102.5528, 23.6345],
+    <Container
+      sx={{
+        padding: 2,
+        backgroundColor: "#f4f4f4",
+        borderRadius: 2,
+        boxShadow: 3,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
-      <Geographies geography={geoUrl}>
-        {({ geographies }) =>
-          geographies.map((geo) => {
-            console.log(geo.properties.state_code, geo.properties.state_name);
+      <ComposableMap
+        projection="geoMercator"
+        projectionConfig={{
+          scale: 1000,
+          center: [-102.5528, 23.6345],
+        }}
+        style={{ width: "100%", height: "auto" }}
+      >
+        <Geographies geography={geoUrl}>
+          {({ geographies }) =>
+            geographies.map((geo) => {
+              // const stateName = geo.properties.name;
+              const currentIDH = getIDHfromStateNumber(
+                geo.properties.state_code
+              );
+              const stateColor = interpolateColor(currentIDH);
 
-            const stateName = geo.properties.name;
+              return (
+                <Geography
+                  key={geo.rsmKey}
+                  geography={geo}
+                  stroke="#FFFFFF"
+                  fill={stateColor}
+                />
+              );
+            })
+          }
+        </Geographies>
+      </ComposableMap>
 
-            const currentIDH = getIDHfromStateNumber(geo.properties.state_code);
-            const stateColor = interpolateColor(currentIDH);
-
-            return (
-              <Geography
-                key={geo.rsmKey}
-                geography={geo}
-                stroke="#FFFFFF" // Color de los bordes
-                fill={stateColor} // Asignar el color al estado
-              />
-            );
-          })
-        }
-      </Geographies>
-    </ComposableMap>
+      {/* Pie de mapa y leyenda */}
+      <Box sx={{ marginTop: 3, textAlign: "center" }}>
+        <Typography variant="h6" gutterBottom>
+          Índice de Desarrollo Humano (IDH) promedio de los años:{" "}
+          {availableYears.join(", ")}
+        </Typography>
+        <Divider sx={{ marginBottom: 2 }} />
+        <Grid container spacing={3} justifyContent="center" alignItems="center">
+          <Grid>
+            <Box
+              sx={{
+                width: 20,
+                height: 20,
+                backgroundColor: "#FF0000",
+                marginRight: 1,
+                display: "inline-block",
+              }}
+            />
+            <Typography variant="body2" component="span">
+              Bajo IDH
+            </Typography>
+          </Grid>
+          <Grid>
+            <Box
+              sx={{
+                width: 20,
+                height: 20,
+                backgroundColor: "#00FF00",
+                marginRight: 1,
+                display: "inline-block",
+              }}
+            />
+            <Typography variant="body2" component="span">
+              Alto IDH
+            </Typography>
+          </Grid>
+        </Grid>
+      </Box>
+    </Container>
   );
 };
 

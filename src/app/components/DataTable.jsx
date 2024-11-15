@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import {
   IconButton,
   Paper,
@@ -9,17 +8,20 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Collapse,
+  Box,
 } from "@mui/material";
-
 import EditIcon from "@mui/icons-material/Edit";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 
 import api from "../lib/axios";
-
 import EditModal from "./EditModal";
 
 const DataTable = ({ idhRecords, states }) => {
-  const [open, setOpen] = useState(false);
-  const [editData, setEditData] = useState({});
+  const [open, setOpen] = useState(false); // Estado para el modal de edición
+  const [editData, setEditData] = useState({}); // Datos de la fila que se edita
+  const [collapsed, setCollapsed] = useState(false); // Estado para colapsar/expandir la tabla
 
   const openEdit = (row) => {
     setEditData(row);
@@ -45,72 +47,93 @@ const DataTable = ({ idhRecords, states }) => {
         console.log("Datos guardados:", data);
         setOpen(false);
       } catch (error) {
-        console.error("Error editando datao");
-        consoel.error(error);
+        console.error("Error editando datos");
+        console.error(error);
       }
     };
     putRecord();
   };
 
+  const toggleTable = () => {
+    setCollapsed(!collapsed);
+  };
+
   return (
-    <>
-      <TableContainer component={Paper} sx={{ width: "100%", px: 2 }}>
-        <Table aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell
-                sx={{
-                  // Ajusta el tamaño solo en pantallas pequeñas (xs)
-                  fontSize: { xs: "0.75rem", sm: "1rem" }, // Tamaño más pequeño en móviles
-                  padding: { xs: "6px 10px", sm: "16px 24px" }, // Reduce el padding en móvil
-                }}
-              >
-                Estado
-              </TableCell>
-              <TableCell align="right">Año</TableCell>
-              <TableCell align="right">IDH</TableCell>
-              <TableCell align="right">Acción</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {Array.isArray(idhRecords) &&
-              idhRecords.map((row) => (
-                <TableRow
-                  key={row._id}
+    <Box sx={{ width: "100%" }}>
+      {/* collapse button */}
+      <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
+        <IconButton
+          onClick={toggleTable}
+          sx={{
+            color: "primary.main",
+            backgroundColor: "background.paper",
+            "&:hover": {
+              backgroundColor: "action.hover",
+            },
+          }}
+        >
+          {collapsed ? <ExpandMoreIcon /> : <ExpandLessIcon />}
+        </IconButton>
+      </Box>
+
+      <Collapse in={!collapsed}>
+        <TableContainer component={Paper}>
+          <Table aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell
                   sx={{
-                    "&:last-child td, &:last-child th": { border: 0 },
+                    fontSize: { xs: "0.75rem", sm: "1rem" },
+                    padding: { xs: "6px 10px", sm: "16px 24px" },
                   }}
                 >
-                  <TableCell
-                    component="th"
-                    scope="row"
+                  Estado
+                </TableCell>
+                <TableCell align="right">Año</TableCell>
+                <TableCell align="right">IDH</TableCell>
+                <TableCell align="right">Acción</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {Array.isArray(idhRecords) &&
+                idhRecords.map((row) => (
+                  <TableRow
+                    key={row._id}
                     sx={{
-                      // Ajustes en el tamaño solo para pantallas pequeñas
-                      fontSize: { xs: "0.75rem", sm: "1rem" },
-                      padding: { xs: "6px 10px", sm: "16px 24px" },
+                      "&:last-child td, &:last-child th": { border: 0 },
                     }}
                   >
-                    {row.state}
-                  </TableCell>
-                  <TableCell align="right">{row.year}</TableCell>
-                  <TableCell align="right">
-                    {(+row.idhIndex).toFixed(3)}
-                  </TableCell>
-                  <TableCell align="right">
-                    <IconButton
-                      color="primary"
-                      onClick={() => openEdit(row)}
-                      aria-label="editar"
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      sx={{
+                        fontSize: { xs: "0.75rem", sm: "1rem" },
+                        padding: { xs: "6px 10px", sm: "16px 24px" },
+                      }}
                     >
-                      <EditIcon />
-                    </IconButton>
-                  </TableCell>
-                </TableRow>
-              ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+                      {row.state}
+                    </TableCell>
+                    <TableCell align="right">{row.year}</TableCell>
+                    <TableCell align="right">
+                      {(+row.idhIndex).toFixed(3)}
+                    </TableCell>
+                    <TableCell align="right">
+                      <IconButton
+                        color="primary"
+                        onClick={() => openEdit(row)}
+                        aria-label="editar"
+                      >
+                        <EditIcon />
+                      </IconButton>
+                    </TableCell>
+                  </TableRow>
+                ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Collapse>
 
+      {/* Edit modal */}
       <EditModal
         states={states}
         open={open}
@@ -119,7 +142,7 @@ const DataTable = ({ idhRecords, states }) => {
         handleInputChange={handleInputChange}
         handleSave={handleSave}
       />
-    </>
+    </Box>
   );
 };
 

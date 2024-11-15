@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import { Box, Fab, Paper } from "@mui/material";
+import { Box, Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
 import DataTable from "./DataTable";
@@ -141,12 +141,17 @@ function Main({ states, idhRecords }) {
         sx={{
           display: "flex",
           justifyContent: "center",
-          width: "50%",
+          width: "100%",
           mb: 2,
           borderRadius: "2px",
         }}
       >
-        <Graph idhRecord={filteredData} states={states} />
+        <Graph
+          idhRecords={filteredData}
+          availableYears={
+            selectedYears.length === 0 ? uniqueYears : selectedYears
+          }
+        />
       </Box>
 
       {/* Add year button */}

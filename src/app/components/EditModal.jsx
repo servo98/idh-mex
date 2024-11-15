@@ -11,16 +11,11 @@ const EditModal = ({
     <Modal open={open} onClose={handleClose}>
       <Box
         sx={{
-          // position: "absolute",
-          // top: "50%",
-          // left: "50%",
-          // transform: "translate(-50%, -50%)",
-          // width: { xs: "calc(100% - 16px)", sm: 400 }, // Reduce el ancho en móvil para evitar el desbordamiento
           bgcolor: "background.paper",
           borderRadius: "2px",
           boxShadow: 24,
-          p: { xs: 2, sm: 3 }, // Padding ajustado para móviles y pantallas grandes
-          mx: { xs: 0, sm: 4 }, // Márgenes laterales en móvil
+          p: { xs: 2, sm: 3 },
+          mx: { xs: 0, sm: 4 },
           mt: { xs: 0, sm: 4 },
         }}
       >

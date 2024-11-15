@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
                   color="white"
                   align="center"
                   sx={{
-                    fontSize: { xs: "2rem", sm: "3rem" }, // Reducir el tamaño en móvil
+                    fontSize: { xs: "2rem", sm: "3rem" },
                   }}
                 >
                   Índice de Desarrollo Humano de México
@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
                   align="center"
                   sx={{
                     mt: 1,
-                    fontSize: { xs: "1rem", sm: "1.25rem" }, // Reducir el tamaño en móvil
+                    fontSize: { xs: "1rem", sm: "1.25rem" },
                     display: {
                       xs: "none",
                       sm: "block",
