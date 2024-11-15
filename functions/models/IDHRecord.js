@@ -7,6 +7,10 @@ const idhRecordSchema = new Schema({
     required: true,
     enum: states,
   },
+  stateNumber: {
+    type: Number,
+    required: true,
+  },
   year: {
     type: Number,
     required: true,

@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 
 const connectToDB = async () => {
   const mongoURI = process.env.MONGO_URI;
+  console.log(mongoURI);
+
   if (mongoose.connections[0].readyState) {
     // console.log("Ya estamos conectados a MongoDB");
     return;

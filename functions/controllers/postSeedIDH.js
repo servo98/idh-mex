@@ -15,10 +15,11 @@ const seedIDHRecords = async () => {
   const years = generateConsecutiveYears();
 
   const records = years.flatMap((year) =>
-    states.map((state) => ({
+    states.map((state, index) => ({
       year: year,
       idhIndex: generateRandomIDH(),
       state,
+      stateNumber: index + 1,
     }))
   );
 

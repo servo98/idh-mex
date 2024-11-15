@@ -1,45 +1,59 @@
 "use client";
-import { useState, useCallback } from "react";
-import Mexico from "@svg-maps/mexico";
-import { SVGMap } from "react-svg-map/src/index";
-// import { getLocationName } from "../utils";
 
-const Graph = () => {
-  const [pointedLocation, setPointedLocation] = useState(null);
-  const [tooltipStyle, setTooltipStyle] = useState({ display: "none" });
+import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 
-  // const handleLocationMouseOver = useCallback((event) => {
-  //   const location = getLocationName(event);
-  //   setPointedLocation(location);
-  // }, []);
+import interpolateColor from "@/app/lib/interpolate";
 
-  // const handleLocationMouseOut = useCallback(() => {
-  //   setPointedLocation(null);
-  //   setTooltipStyle({ display: "none" });
-  // }, []);
+const geoUrl =
+  "https://raw.githubusercontent.com/strotgen/mexico-leaflet/refs/heads/master/states.geojson";
 
-  // const handleLocationMouseMove = useCallback((event) => {
-  //   setTooltipStyle({
-  //     display: "block",
-  //     top: event.clientY + 10,
-  //     left: event.clientX - 100,
-  //   });
-  // }, []);
+// Definir un objeto con los colores por estado
+const stateColors = {
+  Aguascalientes: "#FF0000", // Rojo
+  "Baja California": "#00FF00", // Verde
+  "Baja California Sur": "#0000FF", // Azul
+  // Agrega más estados y sus colores aquí...
+};
 
-  // Función que asigna colores directamente a los estados
-  const getLocationStyle = (location, index) => {
-    // Generamos un color aleatorio basado en el índice
-    const colors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00"];
-    return { fill: colors[index % colors.length] }; // Asignar color de manera cíclica
+const Graph = ({ idhRecord }) => {
+  const getIDHfromStateNumber = (stateNumber) => {
+    //TODO:  something wiht all data arond the years
+    const found = idhRecord.find((record) => {
+      return record.stateNumber == stateNumber;
+    });
+    return found ? found.idhIndex : 0;
   };
 
   return (
-    <article>
-      <h2>mexici SVG heat map with tooltips</h2>
-      <div>
-        <SVGMap map={Mexico} locationStyle={getLocationStyle} />
-      </div>
-    </article>
+    <ComposableMap
+      projection="geoMercator"
+      projectionConfig={{
+        scale: 1000,
+        center: [-102.5528, 23.6345],
+      }}
+    >
+      <Geographies geography={geoUrl}>
+        {({ geographies }) =>
+          geographies.map((geo) => {
+            console.log(geo.properties.state_code, geo.properties.state_name);
+
+            const stateName = geo.properties.name;
+
+            const currentIDH = getIDHfromStateNumber(geo.properties.state_code);
+            const stateColor = interpolateColor(currentIDH);
+
+            return (
+              <Geography
+                key={geo.rsmKey}
+                geography={geo}
+                stroke="#FFFFFF" // Color de los bordes
+                fill={stateColor} // Asignar el color al estado
+              />
+            );
+          })
+        }
+      </Geographies>
+    </ComposableMap>
   );
 };
 

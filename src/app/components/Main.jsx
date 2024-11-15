@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import { Box, Fab } from "@mui/material";
+import { Box, Fab, Paper } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
 import DataTable from "./DataTable";
@@ -136,28 +136,18 @@ function Main({ states, idhRecords }) {
         />
       </Box>
 
-      {/* Show graph button */}
-      {/* <Box
+      {/* Graph */}
+      <Box
         sx={{
-          width: { xs: "100%", sm: "auto" },
-          margin: "auto",
           display: "flex",
           justifyContent: "center",
+          width: "50%",
+          mb: 2,
+          borderRadius: "2px",
         }}
       >
-        <Link href="/graph" passHref>
-          <Button
-            size="large"
-            variant="contained"
-            sx={{ width: "100%", minWidth: "270px" }}
-          >
-            Ver gráfica
-          </Button>
-        </Link>
-      </Box> */}
-
-      {/* Graph */}
-      <Graph idhRecord={filteredData} />
+        <Graph idhRecord={filteredData} states={states} />
+      </Box>
 
       {/* Add year button */}
       <Fab
