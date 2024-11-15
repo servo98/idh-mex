@@ -9,7 +9,13 @@ import {
 
 import { useEffect, useState } from "react";
 
-const EditModal = ({ open, handleClose, states, handleCreateYear }) => {
+const EditModal = ({
+  open,
+  handleClose,
+  states,
+  handleCreateYear,
+  isLoading,
+}) => {
   const [year, setYear] = useState(new Date().getFullYear());
   const [records, setRecords] = useState([]);
 
@@ -41,7 +47,11 @@ const EditModal = ({ open, handleClose, states, handleCreateYear }) => {
   };
 
   return (
-    <Modal open={open} onClose={handleClose}>
+    <Modal
+      open={open}
+      onClose={handleClose}
+      sx={{ maxWidth: "800px", margin: "auto" }}
+    >
       <Box
         sx={{
           bgcolor: "background.paper",
@@ -154,9 +164,10 @@ const EditModal = ({ open, handleClose, states, handleCreateYear }) => {
               fontSize: { xs: "16px", sm: "18px" },
               padding: { xs: "12px", sm: "14px" },
             }}
+            disabled={isLoading}
             onClick={handleAddSubmit}
           >
-            Guardar
+            {isLoading ? "Agregando..." : "Agregar"}
           </Button>
         </Box>
       </Box>

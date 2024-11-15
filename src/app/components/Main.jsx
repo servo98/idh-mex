@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
-import { Box, Fab } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
 
+import { Box, CircularProgress } from "@mui/material";
 import DataTable from "./DataTable";
 import Pagination from "./Pagination";
 import StateSelect from "./filters/StateSelect";
@@ -16,7 +15,7 @@ import Graph from "./Graph";
  * @param {{states: String[], idhRecords: []}} param0
  * @returns
  */
-function Main({ states, idhRecords }) {
+function Main({ states, idhRecords, setIDHRecords }) {
   const [selectedYears, setSelectedYears] = useState([]);
   const [selectedState, setSelectedState] = useState("");
   const [selectedSort, setSelectedSort] = useState("");
@@ -29,7 +28,7 @@ function Main({ states, idhRecords }) {
   const uniqueYears = useMemo(() => {
     if (Array.isArray(idhRecords)) {
       const yearsSet = new Set(idhRecords.map((idhRecord) => idhRecord.year));
-      return [...yearsSet];
+      return [...yearsSet].sort();
     }
     return [];
   }, [idhRecords]);
@@ -72,6 +71,20 @@ function Main({ states, idhRecords }) {
 
   const handlePaginationChange = (data) => {
     setPaginationData(data);
+  };
+
+  const handleModifyRecords = (data) => {
+    setIDHRecords((prevRecords) => {
+      const recordIndex = prevRecords.findIndex(
+        (record) => record._id === data._id
+      );
+
+      if (recordIndex !== -1) {
+        const updatedRecords = [...prevRecords];
+        updatedRecords[recordIndex] = data;
+        return updatedRecords;
+      }
+    });
   };
 
   return (
@@ -121,7 +134,15 @@ function Main({ states, idhRecords }) {
           mt: 2,
         }}
       >
-        <DataTable idhRecords={paginatedData} states={states} />
+        {paginatedData.length > 0 ? (
+          <DataTable
+            idhRecords={paginatedData}
+            states={states}
+            handleModifyRecords={handleModifyRecords}
+          />
+        ) : (
+          <CircularProgress />
+        )}
       </Box>
 
       {/* Pagination */}

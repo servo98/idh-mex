@@ -21,12 +21,15 @@ import api from "../lib/axios";
 import AddModal from "./AddModal";
 import EditModal from "./EditModal";
 
-const DataTable = ({ idhRecords, states }) => {
+const DataTable = ({ idhRecords, states, handleModifyRecords }) => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openAddModal, setOpenAddModal] = useState(false);
   const [editData, setEditData] = useState({});
 
   const [collapsed, setCollapsed] = useState(false);
+
+  const [isAddModalLoading, setIsAddModalLoading] = useState(false);
+  const [isEditModalLoading, setIsEditModalLoading] = useState(false);
 
   const openEdit = (row) => {
     setEditData(row);
@@ -34,7 +37,9 @@ const DataTable = ({ idhRecords, states }) => {
   };
 
   const handleCloseEdit = () => {
-    setOpenEditModal(false);
+    if (!isEditModalLoading) {
+      setOpenEditModal(false);
+    }
   };
 
   const openAdd = () => {
@@ -42,7 +47,9 @@ const DataTable = ({ idhRecords, states }) => {
   };
 
   const handleCloseAdd = () => {
-    setOpenAddModal(false);
+    if (!isAddModalLoading) {
+      setOpenAddModal(false);
+    }
   };
 
   const handleInputChange = (e) => {
@@ -52,13 +59,16 @@ const DataTable = ({ idhRecords, states }) => {
 
   const handleSave = async () => {
     try {
+      setIsEditModalLoading(true);
       const { data } = await api.put("/editIDHRecord", {
         id: editData._id,
         idhIndex: editData.idhIndex,
       });
-      console.log("Datos guardados:", data);
+      handleModifyRecords(data.idhRecord);
+      setIsEditModalLoading(false);
       setOpenEditModal(false);
     } catch (error) {
+      setIsEditModalLoading(false);
       console.error("Error editando datos");
       console.error(error);
     }
@@ -66,10 +76,13 @@ const DataTable = ({ idhRecords, states }) => {
 
   const handleCreateYear = async (data) => {
     try {
+      setIsAddModalLoading(true);
       const { data: resultData } = await api.post("/postIDHYearRecord", data);
-      console.log(resultData);
+      handleModifyRecords(resultData);
       setOpenAddModal(false);
+      setIsAddModalLoading(false);
     } catch (error) {
+      setIsAddModalLoading(false);
       console.error("Error registrando año");
       console.error(error);
     }
@@ -176,6 +189,7 @@ const DataTable = ({ idhRecords, states }) => {
         editData={editData}
         handleInputChange={handleInputChange}
         handleSave={handleSave}
+        isLoading={isEditModalLoading}
       />
 
       <AddModal
@@ -183,6 +197,7 @@ const DataTable = ({ idhRecords, states }) => {
         open={openAddModal}
         handleClose={handleCloseAdd}
         handleCreateYear={handleCreateYear}
+        isLoading={isAddModalLoading}
       />
     </Box>
   );

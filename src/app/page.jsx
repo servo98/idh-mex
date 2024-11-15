@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [states, setStates] = useState([]);
-  const [idhRecords, setidhRecords] = useState(null);
+  const [idhRecords, setIDHRecords] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -15,7 +15,7 @@ export default function Home() {
         const { data } = await api.get("/getIDHRecords");
         const { states, idhRecords: records } = data;
         setStates(states);
-        setidhRecords(records);
+        setIDHRecords(records);
       } catch (error) {
         console.error("un error", error);
       }
@@ -25,7 +25,11 @@ export default function Home() {
 
   return (
     <main>
-      <Main states={states} idhRecords={idhRecords} />
+      <Main
+        states={states}
+        idhRecords={idhRecords}
+        setIDHRecords={setIDHRecords}
+      />
     </main>
   );
 }
