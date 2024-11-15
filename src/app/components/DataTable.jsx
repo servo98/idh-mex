@@ -66,8 +66,8 @@ const DataTable = ({ idhRecords, states }) => {
 
   const handleCreateYear = async (data) => {
     try {
-      const { data } = await api.post("/postIDHYearRecord", data);
-      console.log(data);
+      const { data: resultData } = await api.post("/postIDHYearRecord", data);
+      console.log(resultData);
       setOpenAddModal(false);
     } catch (error) {
       console.error("Error registrando año");

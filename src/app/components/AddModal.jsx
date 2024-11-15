@@ -15,7 +15,7 @@ const EditModal = ({ open, handleClose, states, handleCreateYear }) => {
 
   useEffect(() => {
     const newRecords = Array.from({ length: states.length }, (_, i) => ({
-      sateNumber: i + 1,
+      stateNumber: i + 1,
       idhIndex: 0.0,
       state: states[i],
     }));

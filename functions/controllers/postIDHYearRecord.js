@@ -3,10 +3,10 @@ const connectToDB = require("../utils/mongodb");
 const IDHRecord = require("../models/IDHRecord");
 
 const postIDHYearRecord = async (req, res) => {
-  if (req.method !== "PORT") {
+  if (req.method !== "POST") {
     return res
       .status(405)
-      .json({ msg: "Method Not Allowed. Only GET requests are allowed." });
+      .json({ msg: "Method Not Allowed. Only POST requests are allowed." });
   }
 
   try {
