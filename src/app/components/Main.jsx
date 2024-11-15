@@ -153,20 +153,6 @@ function Main({ states, idhRecords }) {
           }
         />
       </Box>
-
-      {/* Add year button */}
-      <Fab
-        color="primary"
-        aria-label="add"
-        sx={{
-          position: "fixed",
-          bottom: 16,
-          right: 16,
-          zIndex: 1000,
-        }}
-      >
-        <AddIcon />
-      </Fab>
     </Box>
   );
 }

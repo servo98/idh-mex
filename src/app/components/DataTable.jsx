@@ -1,5 +1,11 @@
-import { useState } from "react";
+import AddIcon from "@mui/icons-material/Add";
+import EditIcon from "@mui/icons-material/Edit";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
+  Box,
+  Collapse,
+  Fab,
   IconButton,
   Paper,
   Table,
@@ -8,28 +14,35 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Collapse,
-  Box,
 } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import { useState } from "react";
 
 import api from "../lib/axios";
+import AddModal from "./AddModal";
 import EditModal from "./EditModal";
 
 const DataTable = ({ idhRecords, states }) => {
-  const [open, setOpen] = useState(false); // Estado para el modal de edición
-  const [editData, setEditData] = useState({}); // Datos de la fila que se edita
-  const [collapsed, setCollapsed] = useState(false); // Estado para colapsar/expandir la tabla
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [openAddModal, setOpenAddModal] = useState(false);
+  const [editData, setEditData] = useState({});
+
+  const [collapsed, setCollapsed] = useState(false);
 
   const openEdit = (row) => {
     setEditData(row);
-    setOpen(true);
+    setOpenEditModal(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseEdit = () => {
+    setOpenEditModal(false);
+  };
+
+  const openAdd = () => {
+    setOpenAddModal(true);
+  };
+
+  const handleCloseAdd = () => {
+    setOpenAddModal(false);
   };
 
   const handleInputChange = (e) => {
@@ -37,21 +50,29 @@ const DataTable = ({ idhRecords, states }) => {
     setEditData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSave = () => {
-    const putRecord = async () => {
-      try {
-        const { data } = await api.put("/editIDHRecord", {
-          id: editData._id,
-          idhIndex: editData.idhIndex,
-        });
-        console.log("Datos guardados:", data);
-        setOpen(false);
-      } catch (error) {
-        console.error("Error editando datos");
-        console.error(error);
-      }
-    };
-    putRecord();
+  const handleSave = async () => {
+    try {
+      const { data } = await api.put("/editIDHRecord", {
+        id: editData._id,
+        idhIndex: editData.idhIndex,
+      });
+      console.log("Datos guardados:", data);
+      setOpenEditModal(false);
+    } catch (error) {
+      console.error("Error editando datos");
+      console.error(error);
+    }
+  };
+
+  const handleCreateYear = async (data) => {
+    try {
+      const { data } = await api.post("/postIDHYearRecord", data);
+      console.log(data);
+      setOpenAddModal(false);
+    } catch (error) {
+      console.error("Error registrando año");
+      console.error(error);
+    }
   };
 
   const toggleTable = () => {
@@ -131,16 +152,37 @@ const DataTable = ({ idhRecords, states }) => {
             </TableBody>
           </Table>
         </TableContainer>
+        {/* Add year button */}
+        <Fab
+          onClick={openAdd}
+          color="primary"
+          aria-label="add"
+          sx={{
+            position: "fixed",
+            bottom: 16,
+            right: 16,
+            zIndex: 1000,
+          }}
+        >
+          <AddIcon />
+        </Fab>
       </Collapse>
 
       {/* Edit modal */}
       <EditModal
         states={states}
-        open={open}
-        handleClose={handleClose}
+        open={openEditModal}
+        handleClose={handleCloseEdit}
         editData={editData}
         handleInputChange={handleInputChange}
         handleSave={handleSave}
+      />
+
+      <AddModal
+        states={states}
+        open={openAddModal}
+        handleClose={handleCloseAdd}
+        handleCreateYear={handleCreateYear}
       />
     </Box>
   );
