@@ -34,17 +34,17 @@ export default function Home() {
     }
   };
 
-  const handleRealData = async () => {
-    console.log("handle real data");
+  // const handleRealData = async () => {
+  //   console.log("handle real data");
 
-    // try {
-    //   const { data } = await api.get("/getRealData");
-    //   setIDHRecords(data.idhRecords);
-    //   console.log("Real data fetched:", data);
-    // } catch (error) {
-    //   console.error("Error fetching real data", error);
-    // }
-  };
+  //   // try {
+  //   //   const { data } = await api.get("/getRealData");
+  //   //   setIDHRecords(data.idhRecords);
+  //   //   console.log("Real data fetched:", data);
+  //   // } catch (error) {
+  //   //   console.error("Error fetching real data", error);
+  //   // }
+  // };
 
   useEffect(() => {
     fetchData();
@@ -83,7 +83,7 @@ export default function Home() {
         >
           Generate Random Data
         </Button>
-        <Button
+        {/* <Button
           variant="contained"
           color="warning"
           onClick={handleRealData}
@@ -95,7 +95,7 @@ export default function Home() {
           }}
         >
           Get Real Data
-        </Button>
+        </Button> */}
       </Box>
     </Box>
   );
