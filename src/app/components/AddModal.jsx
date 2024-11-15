@@ -67,7 +67,7 @@ const EditModal = ({
           variant="h5"
           sx={{
             mb: 2,
-            textAlign: "center", // Centramos el título
+            textAlign: "center",
           }}
         >
           Agregar Registros
@@ -151,7 +151,7 @@ const EditModal = ({
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center", // Centramos el botón
+            justifyContent: "center",
             mt: 2,
             width: { xs: "100%", sm: "auto" },
           }}

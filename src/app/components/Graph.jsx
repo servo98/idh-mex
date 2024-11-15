@@ -54,7 +54,6 @@ const Graph = ({ idhRecords, availableYears = [] }) => {
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
             geographies.map((geo) => {
-              // const stateName = geo.properties.name;
               const currentIDH = getIDHfromStateNumber(
                 geo.properties.state_code
               );

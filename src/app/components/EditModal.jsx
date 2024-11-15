@@ -28,7 +28,7 @@ const EditModal = ({
           variant="h5"
           sx={{
             mb: 2,
-            textAlign: "center", // Centrar el título
+            textAlign: "center",
           }}
         >
           Editar Registro
@@ -49,7 +49,7 @@ const EditModal = ({
               fullWidth
               sx={{
                 mb: 2,
-                maxWidth: "400px", // Ajusta el ancho máximo
+                maxWidth: "400px",
               }}
               disabled
             />
@@ -61,7 +61,7 @@ const EditModal = ({
               fullWidth
               sx={{
                 mb: 2,
-                maxWidth: "400px", // Ajusta el ancho máximo
+                maxWidth: "400px",
               }}
               disabled
             />
@@ -75,7 +75,7 @@ const EditModal = ({
               fullWidth
               sx={{
                 mb: 2,
-                maxWidth: "400px", // Ajusta el ancho máximo
+                maxWidth: "400px",
               }}
               slotProps={{
                 htmlInput: {
@@ -89,7 +89,7 @@ const EditModal = ({
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "center", // Centrar el botón
+                justifyContent: "center",
                 mt: 2,
                 width: { xs: "100%", sm: "auto" },
               }}

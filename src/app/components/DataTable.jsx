@@ -153,6 +153,7 @@ const DataTable = ({ idhRecords, states, handleModifyRecords }) => {
                     </TableCell>
                     <TableCell align="right">
                       <IconButton
+                        test-id="edit-button"
                         color="primary"
                         onClick={() => openEdit(row)}
                         aria-label="editar"
@@ -170,6 +171,7 @@ const DataTable = ({ idhRecords, states, handleModifyRecords }) => {
           onClick={openAdd}
           color="primary"
           aria-label="add"
+          test-id="add-button"
           sx={{
             position: "fixed",
             bottom: 16,

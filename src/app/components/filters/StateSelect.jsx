@@ -9,7 +9,7 @@ function StateSelect({ states, selectedState, setSelectedState }) {
 
   return (
     <Box sx={{ width: { xs: "90%", sm: 300 } }}>
-      <InputLabel id="state-selected">Select State</InputLabel>
+      <InputLabel>Select State</InputLabel>
       <Autocomplete
         id="state-selected"
         disablePortal

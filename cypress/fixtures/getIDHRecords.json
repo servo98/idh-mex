@@ -1,0 +1,54 @@
+{
+    "idhRecords": [
+        {
+            "_id": "6736d78ba90d03832cdb7e7d",
+            "state": "Aguascalientes",
+            "stateNumber": 1,
+            "year": 2017,
+            "idhIndex": 0.5,
+            "__v": 0
+        },
+        {
+            "_id": "6736d78ba90d03832cdb7e7e",
+            "state": "Baja California",
+            "stateNumber": 2,
+            "year": 2017,
+            "idhIndex": 0.194,
+            "__v": 0
+        }
+    ],
+    "states": [
+        "Aguascalientes",
+        "Baja California",
+        "Baja California Sur",
+        "Campeche",
+        "Chiapas",
+        "Chihuahua",
+        "Coahuila de Zaragoza",
+        "Colima",
+        "Distrito Federal",
+        "Durango",
+        "Guanajuato",
+        "Guerrero",
+        "Hidalgo",
+        "Jalisco",
+        "México",
+        "Michoacán de Ocampo",
+        "Morelos",
+        "Nayarit",
+        "Nuevo León",
+        "Oaxaca",
+        "Puebla",
+        "Querétaro",
+        "Quintana Roo",
+        "San Luis Potosí",
+        "Sinaloa",
+        "Sonora",
+        "Tabasco",
+        "Tamaulipas",
+        "Tlaxcala",
+        "Veracruz de Ignacio de la Llave",
+        "Yucatán",
+        "Zacatecas"
+    ]
+}
