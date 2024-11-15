@@ -5,9 +5,10 @@
   <a href="https://idh-mex.web.app/">
     <img alt="idh-mex.web.app" title="GitPoint" src="https://github.com/servo98/idh-mex/blob/2c7494372433040b9668346b0196713035f2e194/public/logo_size.jpg" width="450">
   </a>
+  <br />
+  <a href="https://idh-mex.web.app/" target="_blank">Visita site</a>
 </p>
 
-<!-- App y Backend con un diseño más limpio y visual -->
 <p align="center">
   <a href="https://idh-mex.web.app/">
     <img alt="GitHub Actions - App" src="https://img.shields.io/github/actions/workflow/status/servo98/idh-mex/firebase-hosting-push.yml?logo=Firebase&label=App&color=DD2C00" />
@@ -28,7 +29,6 @@
 - [Build Process](#build-process)
 - [Acknowledgments](#acknowledgments)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Introduction
 This application allows users to consult the Human Development Index (HDI) of Mexico's states and visualize it on a heatmap. Users can sort the data by different criteria, making it easier to compare the states.
@@ -51,6 +51,10 @@ A few of the things you can do with this app:
 * Connects to MongoDB
 
 ## Build Process
+
+> [!IMPORTANT]  
+> Use node v18 `node -v` to check your version
+
 1. Clone or download the repo: `git clone https://github.com/servo98/idh-mex.git`
 2. Run `yarn install` to install dependencies
 3. Run `yarn build` to export the files into the `out` folder

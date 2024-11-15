@@ -6,6 +6,7 @@ on:
       - "main"
     paths:
       - "functions/**"
+      - "!README.md"
 
 jobs:
   build-and-deploy:
