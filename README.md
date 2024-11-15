@@ -6,7 +6,7 @@
     <img alt="idh-mex.web.app" title="GitPoint" src="https://github.com/servo98/idh-mex/blob/2c7494372433040b9668346b0196713035f2e194/public/logo_size.jpg" width="450">
   </a>
   <br />
-  <a href="https://idh-mex.web.app/" target="_blank">Visita site</a>
+  <a href="https://idh-mex.web.app/" target="_blank">Visit site</a>
 </p>
 
 <p align="center">
@@ -21,6 +21,16 @@
 <p align="center">
   Human development index of Mexico
 </p>
+
+## Screenshots
+
+<p align="center">
+  <img alt="Screenshot 1" src="https://github.com/servo98/idh-mex/blob/8ffbf559d942efb2272cf744906618bbcec943dc/public/screenshot.JPG" width="300" />
+  <img alt="Screenshot 2" src="https://github.com/servo98/idh-mex/blob/8ffbf559d942efb2272cf744906618bbcec943dc/public/screenshot2.JPG" width="300" />
+  <img alt="Screenshot 3" src="https://github.com/servo98/idh-mex/blob/8ffbf559d942efb2272cf744906618bbcec943dc/public/screenshot3.JPG" width="300" />
+</p>
+
+---
 
 ## Table of Contents
 
@@ -42,6 +52,8 @@ A few of the things you can do with this app:
 * Filter by state name
 * Sort data by state name or IDH record
 * Data is paginated
+* Edit single idh records
+* Create new year records
 * Heat map of Mexico synchronized with filters
 * Tested with Cypress
 * Automatic frontend build and deploy
