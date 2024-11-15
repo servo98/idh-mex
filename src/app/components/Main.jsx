@@ -167,12 +167,16 @@ function Main({ states, idhRecords, setIDHRecords }) {
           borderRadius: "2px",
         }}
       >
-        <Graph
-          idhRecords={filteredData}
-          availableYears={
-            selectedYears.length === 0 ? uniqueYears : selectedYears
-          }
-        />
+        {paginatedData.length > 0 ? (
+          <Graph
+            idhRecords={filteredData}
+            availableYears={
+              selectedYears.length === 0 ? uniqueYears : selectedYears
+            }
+          />
+        ) : (
+          <CircularProgress />
+        )}
       </Box>
     </Box>
   );
